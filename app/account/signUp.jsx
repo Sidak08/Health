@@ -1,12 +1,16 @@
 import React, { useState, useCallback } from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Image, ViewBase, Pressable, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Image, ViewBase, Pressable, Platform, TouchableOpacity } from 'react-native';
 import { useFonts } from 'expo-font';
 import { GoogleSvg, AppleSvg } from '../../components/svg';
 import * as SplashScreen from 'expo-splash-screen';
 import { Link } from "expo-router"
+import { TopBar } from '../../components/topBar';
+import { StatusBar } from 'expo-status-bar';
+import { BottomBar } from '../../components/bottomBar';
 SplashScreen.preventAutoHideAsync();
 
 export default function Page() {
+
     const style = StyleSheet.create({
         container: {
             backgroundColor: "#121212",
@@ -16,13 +20,16 @@ export default function Page() {
     });
 
     return (
-        <View style={style.container}>
-            <StatusBar style="auto" hidden />
-            <Title title={"Sign Up"} />
-            <InputDiv style={{ flex: 1 }} />
-            <OtherSignOP style={{ flex: 1 }} />
-            <Login style={{ flex: 1 }} text="Already Have An Account Login" link="/account/login" btn="Login" />
-        </View>
+        <>
+            <TopBar color="#121212" />
+            <View style={style.container}>
+                <Title title={"Sign Up"} />
+                <InputDiv style={{ flex: 1 }} />
+                <OtherSignOP style={{ flex: 1 }} />
+                <Login style={{ flex: 1 }} text="Already Have An Account Login" link="/account/login" btn="Login" />
+            </View>
+            <BottomBar color="#121212" />
+        </>
     );
 };
 
@@ -138,33 +145,31 @@ const Input = ({ setEmail, setPassword }) => {
 };
 
 export const ContinueButton = ({ onPress }) => {
-    const style = StyleSheet.create({
+    const styles = StyleSheet.create({
         container: {
             marginTop: 52,
             marginRight: 19,
             marginLeft: 19,
             height: 62,
             borderRadius: 10,
-            backgroundColor: "#03DAC6",
+            backgroundColor: '#03DAC6',
             display: 'flex',
-            justifyContent: "center",
-            alignItems: "center"
+            justifyContent: 'center',
+            alignItems: 'center',
         },
-        Text: {
+        text: {
             fontSize: 32,
-            fontWeight: "400",
-            fontStyle: "normal",
+            fontWeight: '400',
+            fontStyle: 'normal',
             lineHeight: 32,
-            color: "#FFFFFF"
-        }
+            color: '#FFFFFF',
+        },
     });
 
     return (
-        <Pressable style={style.container} onPress={onPress}>
-            <Text style={style.Text}>
-                Continue
-            </Text>
-        </Pressable>
+        <TouchableOpacity style={styles.container} onPress={onPress}>
+            <Text style={styles.text}>Continue</Text>
+        </TouchableOpacity>
     );
 };
 
@@ -298,3 +303,5 @@ export const Login = ({ text, btn, link }) => {
         </View>
     )
 }
+
+

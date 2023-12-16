@@ -1,5 +1,5 @@
 import React from "react";
-import Svg, { G, Mask, Path, Defs, ClipPath, Rect, Pattern, Use, Image } from "react-native-svg"
+import Svg, { G, Mask, Path, Defs, ClipPath, Rect, Pattern, Use, Image, Circle } from "react-native-svg"
 
 export const FoodSvg = ({ color, height, width }) => {
     return (
@@ -237,6 +237,31 @@ export const LogoSvg = () => {
                     height={123}
                 />
             </Defs>
+        </Svg>
+    )
+}
+
+export const ProfileSvg = () => {
+    return (
+        <Svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={44}
+            height={44}
+            fill="none"
+        >
+            <Circle cx={22} cy={22} r={22} fill="#1E1E1E" />
+            <Path
+                fill="#2C2C2C"
+                fillRule="evenodd"
+                d="M31.104 17.448a8.345 8.345 0 1 1-16.69 0 8.345 8.345 0 0 1 16.69 0Zm-3.794 0a4.552 4.552 0 1 1-9.103 0 4.552 4.552 0 0 1 9.103 0Z"
+                clipRule="evenodd"
+            />
+            <Path
+                fill="#2C2C2C"
+                fillRule="evenodd"
+                d="M44 22c0 12.15-9.85 22-22 22S0 34.15 0 22 9.85 0 22 0s22 9.85 22 22ZM4.172 22a17.75 17.75 0 0 0 3.725 10.907c9.055-4.346 19.221-4.46 28.317-.145A17.75 17.75 0 0 0 39.828 22c0-9.846-7.982-17.828-17.828-17.828S4.172 12.154 4.172 22Zm6.871 14.064c7.144-3.019 14.924-3.09 22.065-.119A17.752 17.752 0 0 1 22 39.828a17.75 17.75 0 0 1-10.957-3.764Z"
+                clipRule="evenodd"
+            />
         </Svg>
     )
 }

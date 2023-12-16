@@ -13,6 +13,7 @@ export const Navbar = ({ backgroundColor, iconColor }) => {
             alignItems: 'center',
             padding: 10,
             paddingTop: 12,
+            paddingBottom: 18
         },
         fixedPosition: {
             position: 'absolute',

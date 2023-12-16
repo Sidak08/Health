@@ -9,6 +9,8 @@ import {
     ScrollView,
 } from "react-native";
 import { LogoSvg } from "../../components/svg";
+import { TopBar } from "../../components/topBar";
+import { BottomBar } from "../../components/bottomBar";
 
 export default function Page() {
     const [formData, setFormData] = useState({
@@ -34,12 +36,16 @@ export default function Page() {
     });
 
     return (
-        <ScrollView style={style.container}>
-            <Title />
-            <BasicInfo setFormData={setFormData} formData={formData} />
-            <StrengthTest setFormData={setFormData} formData={formData} />
-            <ContinueButton onPress={handleContinuePress} />
-        </ScrollView>
+        <>
+            <TopBar color="#121212" />
+            <ScrollView style={style.container}>
+                <Title />
+                <BasicInfo setFormData={setFormData} formData={formData} />
+                <StrengthTest setFormData={setFormData} formData={formData} />
+                <ContinueButton onPress={handleContinuePress} />
+            </ScrollView>
+            <BottomBar color="#121212" />
+        </>
     );
 }
 
